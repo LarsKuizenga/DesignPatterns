@@ -8,6 +8,6 @@ namespace shop_system_design_patterns.models
 {
     interface IComponent
     {
-        void PrintName();
+        string PrintName();
     }
 }

@@ -10,9 +10,14 @@ namespace shop_system_design_patterns.models
     {
         public string Name { get; set; }
 
-        public void PrintName()
+        public Part(string name)
+		{
+            Name = name;
+		}
+
+        public string PrintName()
         {
-            throw new NotImplementedException();
+            return Name;
         }
     }
 }

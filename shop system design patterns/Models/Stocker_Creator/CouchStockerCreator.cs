@@ -14,7 +14,7 @@ namespace shop_system_design_patterns.models.Stocker_Creator
 
         public override StockerProduct CreateProduct(string name)
         {
-            string returnName = "Chairstocker: " + name;
+            string returnName = "Couchstocker: " + name;
             return new CouchStockerProduct(returnName);
         }
     }

@@ -20,9 +20,14 @@ namespace shop_system_design_patterns.models
             Children.Remove(component);
         }
 
-        public void PrintName()
+        public string PrintName()
         {
-            throw new NotImplementedException();
+            string composedString = "Box(";
+            foreach(IComponent Child in Children)
+			{
+                composedString += PrintName();
+			}
+            return composedString + ")";
         }
     }
 }
