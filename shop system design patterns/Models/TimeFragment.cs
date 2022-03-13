@@ -9,10 +9,12 @@ namespace shop_system_design_patterns.Models
 	class TimeFragment
 	{
 		public int? TimeLeft { get; set; }
+		public TaskCategory TaskName { get; set; }
 
-		public void StartTimeFragment(int duration)
+		public void StartTimeFragment(int duration, TaskCategory taskName)
 		{
 			TimeLeft = duration;
+			TaskName = taskName;
 		}
 
 		public void Update()
@@ -21,7 +23,10 @@ namespace shop_system_design_patterns.Models
 				TimeLeft--;
 
 			if (TimeLeft == 0)
+			{
 				TimeLeft = null;
+				TaskName = TaskCategory.None;
+			}
 		}
 	}
 }

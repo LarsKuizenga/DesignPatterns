@@ -17,15 +17,14 @@ namespace shop_system_design_patterns.models
             Component = CreateComponent(category);
         }
 
-        public IComponent CreateComponent(ProductCategory productCategory)
+        public static IComponent CreateComponent(ProductCategory productCategory)
 		{
 			//TODO: Extend boxes to contain right elements
-			switch (productCategory)
+			return productCategory switch
 			{
-				case ProductCategory.Bed:
-					return new Box()
-					{
-						Children =
+				ProductCategory.Bed => new Box()
+				{
+					Children =
 						{
 							new Box()
 							{
@@ -42,11 +41,10 @@ namespace shop_system_design_patterns.models
 								}
 							}
 						}
-					};
-				case ProductCategory.Chair:
-					return new Box()
-					{
-						Children =
+				},
+				ProductCategory.Chair => new Box()
+				{
+					Children =
 						{
 							new Box()
 							{
@@ -63,11 +61,10 @@ namespace shop_system_design_patterns.models
 								}
 							}
 						}
-					};
-				case ProductCategory.Couch:
-					return new Box()
-					{
-						Children =
+				},
+				ProductCategory.Couch => new Box()
+				{
+					Children =
 						{
 							new Box()
 							{
@@ -87,11 +84,10 @@ namespace shop_system_design_patterns.models
 								}
 							}
 						}
-					};
-				case ProductCategory.Table:
-					return new Box()
-					{
-						Children =
+				},
+				ProductCategory.Table => new Box()
+				{
+					Children =
 						{
 							new Box()
 							{
@@ -108,13 +104,12 @@ namespace shop_system_design_patterns.models
 								}
 							}
 						}
-					};
-				default:
-					return new Box()
-					{
-						Children = null
-					};
-			}
+				},
+				_ => new Box()
+				{
+					Children = null
+				},
+			};
 		}
 
         public string PrintName()

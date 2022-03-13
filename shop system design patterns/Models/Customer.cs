@@ -1,4 +1,5 @@
-﻿using System;
+﻿using shop_system_design_patterns.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,14 @@ namespace shop_system_design_patterns.models
         {
         }
 
-        public override void Purchase()
+        public override string Purchase(ProductCategory productCategory)
         {
-            throw new NotImplementedException();
+            if (TimeFragment.TimeLeft == null)
+            {
+                //TODO: Determine timefragments per task
+                TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing);
+            }
+            return $"Buying some {productCategory}'s for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

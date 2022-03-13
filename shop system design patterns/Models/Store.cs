@@ -41,7 +41,15 @@ namespace shop_system_design_patterns.models
 
         public string TimeSkip()
         {
-            throw new NotImplementedException();
+            int timeSkips = 60; //One timeskip every minute to simulate an hour
+			for (int i = 0; i < timeSkips; i++)
+			{
+                foreach(Shelve shelve in Shelves)
+				{
+                    //shelve.Update();
+				}
+			}
+            return "";
         }
     }
 }
