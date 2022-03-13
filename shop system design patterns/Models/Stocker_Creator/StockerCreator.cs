@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace shop_system_design_patterns.models.Stocker_Creator
 {
-    abstract class StockerCreator : Person
+    abstract class StockerCreator
     {
-        public bool IsStocking { get; set; }
-
-        protected StockerCreator(string name) : base(name)
+        protected StockerCreator()
         {
         }
 
-        public abstract IStockerProduct CreateProduct();
+        public abstract StockerProduct CreateProduct(string name);
 
-        public abstract void Stock();
-        
-        public override void Purchase()
-        {
-            throw new NotImplementedException();
-        }
+        public static StockerProduct CreateStocker(ProductCategory productCategory, string name)
+		{
+			return productCategory switch
+			{
+				ProductCategory.Bed => new BedStockerCreator().CreateProduct(name),
+				ProductCategory.Chair => new ChairStockerCreator().CreateProduct(name),
+				ProductCategory.Couch => new CouchStockerCreator().CreateProduct(name),
+				ProductCategory.Table => new TableStockerCreator().CreateProduct(name),
+				_ => throw new Exception($"Given ProductCategory: {productCategory} does not exist"),
+			};
+		}
     }
 }

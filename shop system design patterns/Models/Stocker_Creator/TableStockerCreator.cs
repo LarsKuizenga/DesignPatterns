@@ -8,18 +8,14 @@ namespace shop_system_design_patterns.models.Stocker_Creator
 {
     class TableStockerCreator : StockerCreator
     {
-        public TableStockerCreator(string name) : base(name)
+        public TableStockerCreator()
         {
         }
 
-        public override IStockerProduct CreateProduct()
+        public override StockerProduct CreateProduct(string name)
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Stock()
-        {
-            throw new NotImplementedException();
+            string returnName = "Tablestocker: " + name;
+            return new TableStockerProduct(returnName);
         }
     }
 }

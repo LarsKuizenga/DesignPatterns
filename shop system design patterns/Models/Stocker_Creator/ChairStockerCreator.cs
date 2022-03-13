@@ -8,18 +8,14 @@ namespace shop_system_design_patterns.models.Stocker_Creator
 {
     class ChairStockerCreator : StockerCreator
     {
-        public ChairStockerCreator(string name) : base(name)
+        public ChairStockerCreator()
         {
         }
 
-        public override IStockerProduct CreateProduct()
+        public override StockerProduct CreateProduct(string name)
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Stock()
-        {
-            throw new NotImplementedException();
+            string returnName = "Chairstocker: " + name;
+            return new ChairStockerProduct(returnName);
         }
     }
 }

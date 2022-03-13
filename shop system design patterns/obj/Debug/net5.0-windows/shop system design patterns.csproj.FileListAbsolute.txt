@@ -1,0 +1,7 @@
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.csproj.AssemblyReference.cache
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop_system_design_patterns.Form1.resources
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.csproj.GenerateResource.cache
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.AssemblyInfoInputs.cache
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.AssemblyInfo.cs
+C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.csproj.CoreCompileInputs.cache

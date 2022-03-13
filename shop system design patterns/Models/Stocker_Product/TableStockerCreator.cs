@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace shop_system_design_patterns.models
 {
-    class TableStockerProduct : IStockerProduct
+    class TableStockerProduct : StockerProduct
     {
-        public void Stocking()
+        public TableStockerProduct(string name) : base(name)
         {
-            throw new NotImplementedException();
+
+        }
+
+        public override string Stocking()
+        {
+            if (TimeFragment.TimeLeft == null)
+            {
+                //TODO: Determine timefragments per task
+                TimeFragment.StartTimeFragment(4);
+            }
+            return $"Stocking the Table for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

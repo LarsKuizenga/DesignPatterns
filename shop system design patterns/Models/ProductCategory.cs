@@ -10,7 +10,7 @@ namespace shop_system_design_patterns.models
     {
         Bed,
         Chair,
-        Chouch,
+        Couch,
         Table
     }
 }

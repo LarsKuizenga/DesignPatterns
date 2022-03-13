@@ -8,18 +8,14 @@ namespace shop_system_design_patterns.models.Stocker_Creator
 {
     class BedStockerCreator : StockerCreator
     {
-        public BedStockerCreator(string name) : base(name)
+        public BedStockerCreator()
         {
         }
 
-        public override IStockerProduct CreateProduct()
+        public override StockerProduct CreateProduct(string name)
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Stock()
-        {
-            throw new NotImplementedException();
+            string returnName = "Bedstocker: " + name;
+            return new BedStockerProduct(returnName);
         }
     }
 }
