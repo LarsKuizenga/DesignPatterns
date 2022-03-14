@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shop_system_design_patterns.Models
+namespace shop_system_design_patterns.models
 {
 	class TimeFragment
 	{
 		public int? TimeLeft { get; set; }
 		public TaskCategory TaskName { get; set; }
 
-		public void StartTimeFragment(int duration, TaskCategory taskName)
+		public void StartTimeFragment(int duration, TaskCategory taskCategory)
 		{
 			TimeLeft = duration;
-			TaskName = taskName;
+			TaskName = taskCategory;
 		}
 
 		public void Update()

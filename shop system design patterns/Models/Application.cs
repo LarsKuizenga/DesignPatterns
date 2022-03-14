@@ -9,12 +9,12 @@ namespace shop_system_design_patterns.models
     class Application
     {
         public EventLog EventLog { get; set; }
-        public Store Store { get; set; }
+        public Controller Controller { get; set; }
         
-        public Application(EventLog eventLog, Store store)
+        public Application(EventLog eventLog, Controller controller)
         {
             EventLog = eventLog;
-            Store = store;
+            Controller = controller;
         }
 
         public void ExecuteCommend(ICommand command) 

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\shop system design patterns",
+    "\\shop system design patterns\\Models"
   ],
+  "SelectedNode": "\\shop system design patterns\\Models\\ShelveManagement.cs",
   "PreviewInSolutionExplorer": false
 }
