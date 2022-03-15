@@ -9,22 +9,29 @@ namespace shop_system_design_patterns.models
 {
     class ShelveManagement
     {
-        public List<StockerCreator> Stockers { get; set; } = new List<StockerCreator>();
+        public List<StockerProduct> Stockers { get; set; } = new List<StockerProduct>();
 
-        public void Subscribe(ProductCategory shelveType, StockerCreator stocker) 
+        public void Subscribe(StockerProduct stocker) 
         {
-            throw new NotImplementedException();
+            Stockers.Add(stocker);
         }
 
-        public void UnSubscribe(ProductCategory shelveType, StockerCreator stocker)
+        public void UnSubscribe(StockerProduct stocker)
         {
-            throw new NotImplementedException();
+            Stockers.Remove(stocker);
         }
 
         //TODO: Check data type
-        public void Notify(ProductCategory shelveType, string data)
+        public List<String> Notify(Shelve shelve)
         {
-            throw new NotImplementedException();
+            List<String> stringList = new();
+
+			foreach (StockerProduct stocker in Stockers)
+			{
+                stringList.Add(stocker.Stocking(shelve));
+			}
+
+            return stringList;
         }
     }
 }

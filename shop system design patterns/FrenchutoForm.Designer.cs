@@ -40,15 +40,15 @@ namespace shop_system_design_patterns
 			this.eventLogListBox.ItemHeight = 15;
 			this.eventLogListBox.Location = new System.Drawing.Point(12, 12);
 			this.eventLogListBox.Name = "eventLogListBox";
-			this.eventLogListBox.Size = new System.Drawing.Size(408, 424);
+			this.eventLogListBox.Size = new System.Drawing.Size(587, 649);
 			this.eventLogListBox.TabIndex = 0;
 			this.eventLogListBox.SelectedIndexChanged += new System.EventHandler(this.EventLogListBox_SelectedIndexChanged);
 			// 
 			// timeSkipButton
 			// 
-			this.timeSkipButton.Location = new System.Drawing.Point(426, 12);
+			this.timeSkipButton.Location = new System.Drawing.Point(605, 12);
 			this.timeSkipButton.Name = "timeSkipButton";
-			this.timeSkipButton.Size = new System.Drawing.Size(362, 204);
+			this.timeSkipButton.Size = new System.Drawing.Size(547, 324);
 			this.timeSkipButton.TabIndex = 1;
 			this.timeSkipButton.Text = "TIME SKIP";
 			this.timeSkipButton.UseVisualStyleBackColor = true;
@@ -56,19 +56,19 @@ namespace shop_system_design_patterns
 			// 
 			// clearLogButton
 			// 
-			this.clearLogButton.Location = new System.Drawing.Point(426, 222);
+			this.clearLogButton.Location = new System.Drawing.Point(605, 342);
 			this.clearLogButton.Name = "clearLogButton";
-			this.clearLogButton.Size = new System.Drawing.Size(362, 214);
+			this.clearLogButton.Size = new System.Drawing.Size(547, 319);
 			this.clearLogButton.TabIndex = 2;
 			this.clearLogButton.Text = "CLEAR LOG";
 			this.clearLogButton.UseVisualStyleBackColor = true;
 			this.clearLogButton.Click += new System.EventHandler(this.ClearEventLog_Click);
 			// 
-			// Form1
+			// FrenchutoForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1164, 681);
 			this.Controls.Add(this.clearLogButton);
 			this.Controls.Add(this.timeSkipButton);
 			this.Controls.Add(this.eventLogListBox);

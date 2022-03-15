@@ -17,11 +17,11 @@ namespace shop_system_design_patterns.models
             TimeFragment = new TimeFragment();
         }
 
-        public abstract string Purchase(ProductCategory productCategory);
+        public abstract string Purchase(Shelve shelve);
 
         public void Update()
         {
-            TimeFragment.Update();
+            TimeFragment.Tick();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace shop_system_design_patterns.models
     class Store
     {
         public string Name { get; set; }
-        public Warehouse Warehouse { get; set; }
+        public static Warehouse Warehouse { get; set; }
         public List<Shelve> Shelves { get; set; } = new List<Shelve>();
         public List<Person> People { get; set; } = new List<Person>();
 

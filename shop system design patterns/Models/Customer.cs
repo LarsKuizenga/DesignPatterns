@@ -12,14 +12,16 @@ namespace shop_system_design_patterns.models
         {
         }
 
-        public override string Purchase(ProductCategory productCategory)
+        public override string Purchase(Shelve shelve)
         {
             if (TimeFragment.TimeLeft == null)
             {
                 //TODO: Determine timefragments per task
                 TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing);
             }
-            return $"Buying some {productCategory}'s for another {TimeFragment.TimeLeft} minutes";
+            shelve.RemoveProduct();
+
+            return $"{Name} is buying some {shelve.Category}'s for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

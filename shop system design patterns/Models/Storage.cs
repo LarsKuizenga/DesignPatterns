@@ -22,19 +22,5 @@ namespace shop_system_design_patterns.models
 		{
 			Products.Add(product);
 		}
-
-		public void RemoveProduct(ProductCategory productCategory)
-		{
-			Product product = Products.First(p => p.Category == productCategory);
-			if (product != null)
-			{
-				Products.Remove(product);
-			}
-			else
-			{
-				//TODO: Show unavailable items in log?
-				Console.WriteLine($"No products of {productCategory} left");
-			}
-		}
 	}
 }

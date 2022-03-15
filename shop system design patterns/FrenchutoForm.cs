@@ -13,14 +13,17 @@ namespace shop_system_design_patterns
 {
     public partial class FrenchutoForm : Form
     {
+		private models.Application application;
+
         public FrenchutoForm()
         {
             InitializeComponent();
-        }
+			application = new(new EventLog(), new Controller());
+		}
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+			application.Controller.Initialize();
         }
 
 		private void EventLogListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -30,7 +33,16 @@ namespace shop_system_design_patterns
 
 		private void TimeSkip_Click(object sender, EventArgs e)
 		{
+			for (int i = 0; i < 60; i++)
+			{
+				List<String> stringList = application.Controller.Update();
+				//foreach (String string in stringList)
+				//{
 
+				//}
+				this.eventLogListBox.Items.AddRange(stringList.ToArray());
+			}
+			
 		}
 
 		private void ClearEventLog_Click(object sender, EventArgs e)

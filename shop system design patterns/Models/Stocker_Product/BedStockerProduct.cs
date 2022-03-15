@@ -13,9 +13,9 @@ namespace shop_system_design_patterns.models
 
         }
 
-        public override string Stocking()
+        public override string Stocking(Shelve shelve)
         {
-            if (TimeFragment.TaskName != TaskCategory.Stocking)
+            if (TimeFragment.TaskName == TaskCategory.Purchasing)
 			{
                 return $"{Name} can't be stocking right now, they're doing something else";
 			}
@@ -24,7 +24,9 @@ namespace shop_system_design_patterns.models
                 //TODO: Determine timefragments per task
                 TimeFragment.StartTimeFragment(5, TaskCategory.Stocking);
 			}
-            return $"Stocking the beds for another {TimeFragment.TimeLeft} minutes";
+            shelve.AddProduct(Store.Warehouse.TakeProduct(ProductCategory.Bed));
+
+            return $"{Name} is stocking the beds for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

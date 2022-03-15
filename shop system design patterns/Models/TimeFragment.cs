@@ -17,7 +17,7 @@ namespace shop_system_design_patterns.models
 			TaskName = taskCategory;
 		}
 
-		public void Update()
+		public void Tick()
 		{
 			if(TimeLeft > 0)
 				TimeLeft--;
