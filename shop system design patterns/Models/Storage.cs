@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shop_system_design_patterns.models
 {
-	class Storage
+	abstract class Storage
 	{
 		public List<Product> Products { get; set; } = new List<Product>();
 

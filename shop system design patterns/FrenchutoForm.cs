@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace shop_system_design_patterns
 {
-    public partial class Form1 : Form
+    public partial class FrenchutoForm : Form
     {
-        public Form1()
+        public FrenchutoForm()
         {
             InitializeComponent();
         }
@@ -22,5 +22,20 @@ namespace shop_system_design_patterns
         {
             
         }
-    }
+
+		private void EventLogListBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TimeSkip_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void ClearEventLog_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

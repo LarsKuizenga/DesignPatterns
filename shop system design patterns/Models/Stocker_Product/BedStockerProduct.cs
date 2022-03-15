@@ -15,7 +15,7 @@ namespace shop_system_design_patterns.models
 
         public override string Stocking()
         {
-            if(TimeFragment.TaskName != TaskCategory.Purchasing)
+            if (TimeFragment.TaskName != TaskCategory.Stocking)
 			{
                 return $"{Name} can't be stocking right now, they're doing something else";
 			}

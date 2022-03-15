@@ -9,12 +9,12 @@ namespace shop_system_design_patterns.models
     class TimeSkipCommand : ICommand
     {
         public EventLog EventLog { get; set; }
-        public Store Store { get; set; }
+        public Controller Controller { get; set; }
 
-        public TimeSkipCommand(EventLog eventLog, Store store)
+        public TimeSkipCommand(EventLog eventLog, Controller controller)
         {
             EventLog = eventLog;
-            Store = store;
+            Controller = controller;
         }
 
         public void Execute()

@@ -14,6 +14,7 @@ namespace shop_system_design_patterns.models
 
 		public Controller()
 		{
+			Random = new();
 			Store = null;
 		}
 
@@ -23,6 +24,7 @@ namespace shop_system_design_patterns.models
 			{
 				Shelves = InitializeShelves(),
 				People = InitializePeople()
+				
 			};
 		}
 
@@ -31,6 +33,7 @@ namespace shop_system_design_patterns.models
 			Warehouse warehouse = new();
 
 			int amountOfProducts = Random.Next(20, 51);
+			//TODO: Now only selects 1 product category
 			warehouse.FillStorage(GenerateProductCategory(), amountOfProducts);
 
 			return warehouse;
@@ -62,16 +65,7 @@ namespace shop_system_design_patterns.models
 			int amountOfPeople = Random.Next(40, 51);
 			for (int i = 0; i < amountOfPeople; i++)
 			{
-				Person person;
-				if(Random.Next(4) == 0)
-				{
-					person = new Customer(GenerateRandomName());
-				}
-				else
-				{
-					person = StockerCreator.CreateStocker(GenerateProductCategory(), GenerateRandomName());
-				}
-				people.Add(person);
+				people.Add(StockerCreator.CreateStocker(GenerateProductCategory(), GenerateRandomName()));
 			}
 
 			return people;

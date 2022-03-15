@@ -8,5 +8,6 @@ namespace shop_system_design_patterns.models
 {
     class Warehouse : Storage
     {
+        //TODO: Implement fillstorage so a random category gets used every time
     }
 }

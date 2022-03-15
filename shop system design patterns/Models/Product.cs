@@ -17,7 +17,7 @@ namespace shop_system_design_patterns.models
             Component = CreateComponent(category);
         }
 
-        public static IComponent CreateComponent(ProductCategory productCategory)
+        private IComponent CreateComponent(ProductCategory productCategory)
 		{
 			//TODO: Extend boxes to contain right elements
 			return productCategory switch
