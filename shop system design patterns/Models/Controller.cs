@@ -21,12 +21,9 @@ namespace shop_system_design_patterns.models
 		#region Initialization
 		public void Initialize()
 		{
-			Store = new Store("Raamy's Ratelaars", InitializeWarehouse())
-			{
-				Shelves = InitializeShelves(),
-				People = InitializePeople()
-				
-			};
+			Store = new Store("Raamy's Ratelaars", InitializeWarehouse());
+			Store.People = InitializePeople();
+			Store.Shelves = InitializeShelves();
 		}
 
 		private Warehouse InitializeWarehouse()
@@ -42,6 +39,19 @@ namespace shop_system_design_patterns.models
 			return warehouse;
 		}
 
+		private List<Person> InitializePeople()
+		{
+			List<Person> people = new();
+
+			int amountOfPeople = Random.Next(40, 51);
+			for (int i = 0; i < amountOfPeople; i++)
+			{
+				people.Add(StockerCreator.CreateStocker(GenerateProductCategory(), GenerateRandomName()));
+			}
+
+			return people;
+		}
+
 		private List<Shelve> InitializeShelves()
 		{
 			List<Shelve> shelves = new();
@@ -54,24 +64,15 @@ namespace shop_system_design_patterns.models
 
 				int amountOfProducts = Random.Next(10, 21);
 				shelve.FillStorage(shelveProductCategory, amountOfProducts);
+				for (int j = 0; j < 3; j++)
+				{
+					shelve.ShelveManagement.Subscribe(shelve.GetRandomStockerOfShelveCategory(Store.People));
+				}
 
 				shelves.Add(shelve);
 			}
 
 			return shelves;
-		}
-
-		private List<Person> InitializePeople()
-		{
-			List<Person> people = new();
-
-			int amountOfPeople = Random.Next(40, 51);
-			for (int i = 0; i < amountOfPeople; i++)
-			{
-				people.Add(StockerCreator.CreateStocker(GenerateProductCategory(), GenerateRandomName()));
-			}
-
-			return people;
 		}
 		#endregion
 

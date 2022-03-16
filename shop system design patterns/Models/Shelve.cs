@@ -20,34 +20,37 @@ namespace shop_system_design_patterns.models
 
 		public void RemoveProduct()
 		{
-			Product product = Products.First();
-			if (product != null)
+			if (HasProductAmount())
 			{
+				Product product = Products.First();
 				Products.Remove(product);
 			}
-			else
+		}
+
+		public bool HasProductAmount(uint desired = 0)
+		{
+			if(Products.Count == desired)
 			{
-				//TODO: Show unavailable items in log?
-				Console.WriteLine($"No products left");
+				return true;
 			}
+			return false;
 		}
 
 		public List<String> Update(List<Person> people)
 		{
 			List<String> stringList = new();
-
-			if(Products.Count < MinAmountOfProducts)
-			{
-				ShelveManagement.Subscribe(GetRandomStockerOfShelveCategory(people));
-				stringList.AddRange(ShelveManagement.Notify(this));
-			}
+			
 			if(ShelveManagement.Stockers.Count == 0)
 			{
 				return new List<String>();
 			}
-			if(ShelveManagement.Stockers[0].TimeFragment.TaskName == TaskCategory.Stocking)
+			if (Products.Count < MinAmountOfProducts)
 			{
-				foreach (StockerProduct stocker in ShelveManagement.Stockers)
+				stringList.AddRange(ShelveManagement.Notify(this));
+			}
+			foreach (StockerProduct stocker in ShelveManagement.Stockers)
+			{
+				if(stocker.TimeFragment.TaskName == TaskCategory.Stocking)
 				{
 					stringList.Add(stocker.Stocking(this));
 				}
@@ -56,9 +59,15 @@ namespace shop_system_design_patterns.models
 			return stringList;
 		}
 
-		private StockerProduct GetRandomStockerOfShelveCategory(List<Person> people)
+		public StockerProduct GetRandomStockerOfShelveCategory(List<Person> people)
 		{
-			return (StockerProduct) people.First(p => p.GetType() == StockerProduct.GetStockerProductCategory(Category));
+			List<StockerProduct> stockerProducts = new();
+			
+			stockerProducts = people.FindAll(p => p.GetType() == StockerProduct.GetStockerProductCategory(Category)).Cast<StockerProduct>().ToList();
+			Random random = new();
+			int randomStockerProduct = random.Next(0, stockerProducts.Count);
+
+			return stockerProducts[randomStockerProduct];
 		}
 	}
 }

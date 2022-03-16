@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\larsk\\Source\\Repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\shop system design patterns.csproj",
+      "projectUniqueName": "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\shop system design patterns.csproj",
       "projectName": "shop system design patterns",
-      "projectPath": "C:\\Users\\larsk\\Source\\Repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\shop system design patterns.csproj",
+      "projectPath": "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\shop system design patterns.csproj",
       "packagesPath": "C:\\Users\\larsk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\larsk\\Source\\Repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\obj\\",
+      "outputPath": "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

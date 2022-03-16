@@ -8,10 +8,10 @@ namespace shop_system_design_patterns.models
 {
 	class TimeFragment
 	{
-		public int? TimeLeft { get; set; }
+		public uint? TimeLeft { get; set; }
 		public TaskCategory TaskName { get; set; }
 
-		public void StartTimeFragment(int duration, TaskCategory taskCategory)
+		public void StartTimeFragment(uint duration, TaskCategory taskCategory)
 		{
 			TimeLeft = duration;
 			TaskName = taskCategory;

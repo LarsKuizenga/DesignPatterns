@@ -36,10 +36,6 @@ namespace shop_system_design_patterns
 			for (int i = 0; i < 60; i++)
 			{
 				List<String> stringList = application.Controller.Update();
-				//foreach (String string in stringList)
-				//{
-
-				//}
 				this.eventLogListBox.Items.AddRange(stringList.ToArray());
 			}
 			

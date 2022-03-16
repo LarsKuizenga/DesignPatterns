@@ -23,7 +23,11 @@ namespace shop_system_design_patterns.models
 			if (TimeFragment.TimeLeft == null)
 			{
 				//TODO: Determine timefragments per task
-				TimeFragment.StartTimeFragment(1, TaskCategory.Stocking);
+				TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing);
+			}
+			if(shelve.HasProductAmount())
+			{
+				return $"No products left in this {shelve.Category} shelve";
 			}
 			shelve.RemoveProduct();
 
@@ -41,7 +45,6 @@ namespace shop_system_design_patterns.models
 				case ProductCategory.Couch:
 					return typeof(CouchStockerProduct);
 				case ProductCategory.Table:
-					return typeof(TableStockerProduct);
 				default:
 					return typeof(TableStockerProduct);
 			}

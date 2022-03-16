@@ -32,15 +32,16 @@ namespace shop_system_design_patterns
 			this.eventLogListBox = new System.Windows.Forms.ListBox();
 			this.timeSkipButton = new System.Windows.Forms.Button();
 			this.clearLogButton = new System.Windows.Forms.Button();
+			this.treeView1 = new System.Windows.Forms.TreeView();
 			this.SuspendLayout();
 			// 
 			// eventLogListBox
 			// 
 			this.eventLogListBox.FormattingEnabled = true;
 			this.eventLogListBox.ItemHeight = 15;
-			this.eventLogListBox.Location = new System.Drawing.Point(12, 12);
+			this.eventLogListBox.Location = new System.Drawing.Point(12, 207);
 			this.eventLogListBox.Name = "eventLogListBox";
-			this.eventLogListBox.Size = new System.Drawing.Size(587, 649);
+			this.eventLogListBox.Size = new System.Drawing.Size(587, 454);
 			this.eventLogListBox.TabIndex = 0;
 			this.eventLogListBox.SelectedIndexChanged += new System.EventHandler(this.EventLogListBox_SelectedIndexChanged);
 			// 
@@ -64,11 +65,19 @@ namespace shop_system_design_patterns
 			this.clearLogButton.UseVisualStyleBackColor = true;
 			this.clearLogButton.Click += new System.EventHandler(this.ClearEventLog_Click);
 			// 
+			// treeView1
+			// 
+			this.treeView1.Location = new System.Drawing.Point(12, 12);
+			this.treeView1.Name = "treeView1";
+			this.treeView1.Size = new System.Drawing.Size(587, 189);
+			this.treeView1.TabIndex = 3;
+			// 
 			// FrenchutoForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1164, 681);
+			this.Controls.Add(this.treeView1);
 			this.Controls.Add(this.clearLogButton);
 			this.Controls.Add(this.timeSkipButton);
 			this.Controls.Add(this.eventLogListBox);
@@ -84,6 +93,7 @@ namespace shop_system_design_patterns
 		private System.Windows.Forms.ListBox eventLogListBox;
 		private System.Windows.Forms.Button timeSkipButton;
 		private System.Windows.Forms.Button clearLogButton;
+		private System.Windows.Forms.TreeView treeView1;
 	}
 }
 

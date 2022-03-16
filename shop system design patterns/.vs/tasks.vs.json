@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-shop system design patterns.csproj",
+      "appliesTo": "shop system design patterns.csproj.user",
+      "type": "launch"
+    }
+  ]
+}
