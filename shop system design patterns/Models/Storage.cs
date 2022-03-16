@@ -22,5 +22,14 @@ namespace shop_system_design_patterns.models
 		{
 			Products.Add(product);
 		}
+
+		public bool HasProductAmount(int desired = 0)
+		{
+			if (Products.Count > desired)
+			{
+				return true;
+			}
+			return false;
+		}
 	}
 }

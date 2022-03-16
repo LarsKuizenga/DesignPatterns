@@ -60,7 +60,7 @@ namespace shop_system_design_patterns.models
 			for (int i = 0; i < amountOfShelves; i++)
 			{
 				ProductCategory shelveProductCategory = GenerateProductCategory();
-				Shelve shelve = new(shelveProductCategory, new ShelveManagement());
+				Shelve shelve = new(i.ToString(), shelveProductCategory, new ShelveManagement());
 
 				int amountOfProducts = Random.Next(10, 21);
 				shelve.FillStorage(shelveProductCategory, amountOfProducts);
@@ -85,15 +85,18 @@ namespace shop_system_design_patterns.models
 
 			for (int i = 0; i < randomAmountOfPurchases; i++)
 			{
-				stringList.Add(PersonPurchases());
+				stringList.AddRange(PersonPurchases());
 			}
 			
-			CustomersLeave();
+			stringList.AddRange(CustomersLeave());
 
 			foreach (Shelve shelve in Store.Shelves)
 			{
-				stringList.AddRange(shelve.Update(Store.People));
+				stringList.AddRange(shelve.Update(Store.Warehouse));
 			}
+
+			stringList.AddRange(Store.Warehouse.Update());
+
 			foreach (Person person in Store.People)
 			{
 				person.Update();
@@ -102,8 +105,10 @@ namespace shop_system_design_patterns.models
 			return stringList;
 		}
 
-		private string PersonPurchases()
+		private List<String> PersonPurchases()
 		{
+			List<String> stringList = new();
+
 			bool isNewCustomer = Convert.ToBoolean(Random.Next(0, 2));
 
 			Person person;
@@ -111,6 +116,7 @@ namespace shop_system_design_patterns.models
 			{
 				Store.People.Add(new Customer(GenerateRandomName()));
 				person = Store.People.Last();
+				stringList.Add($"{person.Name} enters the store");
 			}
 			else
 			{
@@ -118,12 +124,16 @@ namespace shop_system_design_patterns.models
 				person = Store.People[randomCustomer];
 			}	
 			int randomShelve = Random.Next(0, Store.Shelves.Count);
-			
-			return person.Purchase(Store.Shelves[randomShelve]);
+
+			stringList.Add(person.Purchase(Store.Shelves[randomShelve]));
+
+			return stringList;
 		}
 
-		private void CustomersLeave()
+		private List<String> CustomersLeave()
 		{
+			List<String> stringList = new();
+
 			int amountLeaves = Random.Next(1, 3);
 			for (int i = 0; i < amountLeaves; i++)
 			{
@@ -132,15 +142,18 @@ namespace shop_system_design_patterns.models
 
 				if (person is Customer)
 				{
+                    stringList.Add($"{person.Name} leaves the store");
 					Store.RemovePerson(person);
 				}
 			}
+
+			return stringList;
 		}
 		#endregion
 
 		private ProductCategory GenerateProductCategory()
 		{
-			int categoryNumber = Random.Next(4);
+			int categoryNumber = Random.Next(Enum.GetNames(typeof(ProductCategory)).Length);
 
 			return categoryNumber switch
 			{
@@ -153,7 +166,7 @@ namespace shop_system_design_patterns.models
 
 		private string GenerateRandomName()
 		{
-			List<string> nameList = new List<string>()
+			List<string> nameList = new()
 			{
 				"Raamy",
 				"Lars",

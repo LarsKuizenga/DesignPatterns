@@ -12,7 +12,8 @@ namespace shop_system_design_patterns.models
 		{
 		}
 
-		public abstract string Stocking(Shelve shelve);
+		//TODO: Stocker can stock on multiple shelves, unwanted behaviour
+		public abstract string Stocking(Shelve shelve, Warehouse warehouse);
 
         public override string Purchase(Shelve shelve)
 		{
@@ -25,29 +26,24 @@ namespace shop_system_design_patterns.models
 				//TODO: Determine timefragments per task
 				TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing);
 			}
-			if(shelve.HasProductAmount())
+			if(!shelve.HasProductAmount())
 			{
 				return $"No products left in this {shelve.Category} shelve";
 			}
 			shelve.RemoveProduct();
 
-			return $"{Name} is buying some {shelve.Category}'s (with a discount!) for another {TimeFragment.TimeLeft} minutes";
+			return $"{Name} is buying some {shelve.Category}s (with a discount!) for another {TimeFragment.TimeLeft} minutes";
 		}
 
 		public static Type GetStockerProductCategory(ProductCategory productCategory)
 		{
-			switch (productCategory)
-			{
-				case ProductCategory.Bed:
-					return typeof(BedStockerProduct);
-				case ProductCategory.Chair:
-					return typeof(ChairStockerProduct);
-				case ProductCategory.Couch:
-					return typeof(CouchStockerProduct);
-				case ProductCategory.Table:
-				default:
-					return typeof(TableStockerProduct);
-			}
-		}
+            return productCategory switch
+            {
+                ProductCategory.Bed => typeof(BedStockerProduct),
+                ProductCategory.Chair => typeof(ChairStockerProduct),
+                ProductCategory.Couch => typeof(CouchStockerProduct),
+                _ => typeof(TableStockerProduct),
+            };
+        }
 	}
 }

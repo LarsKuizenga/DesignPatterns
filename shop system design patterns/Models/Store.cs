@@ -9,7 +9,7 @@ namespace shop_system_design_patterns.models
     class Store
     {
         public string Name { get; set; }
-        public static Warehouse Warehouse { get; set; }
+        public Warehouse Warehouse { get; set; }
         public List<Shelve> Shelves { get; set; } = new List<Shelve>();
         public List<Person> People { get; set; } = new List<Person>();
 
@@ -37,19 +37,6 @@ namespace shop_system_design_patterns.models
         public void RemoveShelve(Shelve shelve)
         {
             Shelves.Remove(shelve);
-        }
-
-        public string TimeSkip()
-        {
-            int timeSkips = 60; //One timeskip every minute to simulate an hour
-			for (int i = 0; i < timeSkips; i++)
-			{
-                foreach(Shelve shelve in Shelves)
-				{
-                    //shelve.Update();
-				}
-			}
-            return "";
         }
     }
 }

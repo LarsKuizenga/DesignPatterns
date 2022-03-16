@@ -13,7 +13,7 @@ namespace shop_system_design_patterns.models
 
         }
 
-        public override string Stocking(Shelve shelve)
+        public override string Stocking(Shelve shelve, Warehouse warehouse)
         {
             if (TimeFragment.TaskName == TaskCategory.Purchasing)
             {
@@ -24,9 +24,13 @@ namespace shop_system_design_patterns.models
                 //TODO: Determine timefragments per task
                 TimeFragment.StartTimeFragment(4, TaskCategory.Stocking);
             }
-            shelve.AddProduct(Store.Warehouse.TakeProduct(ProductCategory.Table));
+            if (!warehouse.HasProductAmount(ProductCategory.Table))
+            {
+                return $"No products of {ProductCategory.Table} left in warehouse";
+            }
+            shelve.AddProduct(warehouse.TakeProduct(ProductCategory.Table));
 
-            return $"{Name} is stocking the Table for another {TimeFragment.TimeLeft} minutes";
+            return $"{Name} is stocking the {shelve.Category}s in shelve:{shelve.Id} for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

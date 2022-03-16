@@ -22,13 +22,13 @@ namespace shop_system_design_patterns.models
         }
 
         //TODO: Check data type
-        public List<String> Notify(Shelve shelve)
+        public List<String> Notify(Shelve shelve, Warehouse warehouse)
         {
             List<String> stringList = new();
 
 			foreach (StockerProduct stocker in Stockers)
 			{
-                stringList.Add(stocker.Stocking(shelve));
+                stringList.Add(stocker.Stocking(shelve, warehouse));
 			}
 
             return stringList;

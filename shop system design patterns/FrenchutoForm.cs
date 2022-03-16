@@ -36,9 +36,17 @@ namespace shop_system_design_patterns
 			for (int i = 0; i < 60; i++)
 			{
 				List<String> stringList = application.Controller.Update();
+				for (int j = 0; j < stringList.Count; j++)
+				{
+					string minuteString = i.ToString();
+					if(i < 10)
+                    {
+						minuteString = "0" + i;
+                    }
+					stringList[j] = "[8:" + minuteString + "] " + stringList[j];
+				}
 				this.eventLogListBox.Items.AddRange(stringList.ToArray());
 			}
-			
 		}
 
 		private void ClearEventLog_Click(object sender, EventArgs e)

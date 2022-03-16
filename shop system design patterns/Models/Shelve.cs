@@ -8,12 +8,14 @@ namespace shop_system_design_patterns.models
 {
 	class Shelve : Storage
 	{
+		public string Id { get; set; }
 		public ProductCategory Category { get; set; }
 		public ShelveManagement ShelveManagement { get; set; }
 		public static int MinAmountOfProducts { get; set; } = 5;
         
-        public Shelve(ProductCategory category, ShelveManagement shelveManagement)
+        public Shelve(string id, ProductCategory category, ShelveManagement shelveManagement)
         {
+			Id = id;
             Category = category;
             ShelveManagement = shelveManagement;
         }
@@ -27,16 +29,7 @@ namespace shop_system_design_patterns.models
 			}
 		}
 
-		public bool HasProductAmount(uint desired = 0)
-		{
-			if(Products.Count == desired)
-			{
-				return true;
-			}
-			return false;
-		}
-
-		public List<String> Update(List<Person> people)
+		public List<String> Update(Warehouse warehouse)
 		{
 			List<String> stringList = new();
 			
@@ -44,15 +37,18 @@ namespace shop_system_design_patterns.models
 			{
 				return new List<String>();
 			}
-			if (Products.Count < MinAmountOfProducts)
+			if (!HasProductAmount(MinAmountOfProducts))
 			{
-				stringList.AddRange(ShelveManagement.Notify(this));
+				stringList.AddRange(ShelveManagement.Notify(this, warehouse));
 			}
-			foreach (StockerProduct stocker in ShelveManagement.Stockers)
+			else
 			{
-				if(stocker.TimeFragment.TaskName == TaskCategory.Stocking)
+				foreach (StockerProduct stocker in ShelveManagement.Stockers)
 				{
-					stringList.Add(stocker.Stocking(this));
+					if (stocker.TimeFragment.TaskName == TaskCategory.Stocking)
+					{
+						stringList.Add(stocker.Stocking(this, warehouse));
+					}
 				}
 			}
 

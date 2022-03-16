@@ -19,13 +19,13 @@ namespace shop_system_design_patterns.models
                 //TODO: Determine timefragments per task
                 TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing);
             }
-            if (shelve.HasProductAmount())
+            if (!shelve.HasProductAmount())
             {
                 return $"No products left in this {shelve.Category} shelve";
             }
             shelve.RemoveProduct();
 
-            return $"{Name} is buying some {shelve.Category}'s for another {TimeFragment.TimeLeft} minutes";
+            return $"{Name} is buying some {shelve.Category}s for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

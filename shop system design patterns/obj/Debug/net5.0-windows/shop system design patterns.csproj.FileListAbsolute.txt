@@ -9,10 +9,10 @@ C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patte
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\bin\Debug\net5.0-windows\shop system design patterns.runtimeconfig.json
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\bin\Debug\net5.0-windows\shop system design patterns.runtimeconfig.dev.json
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\bin\Debug\net5.0-windows\shop system design patterns.dll
-C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\bin\Debug\net5.0-windows\ref\shop system design patterns.dll
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\bin\Debug\net5.0-windows\shop system design patterns.pdb
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.dll
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\ref\shop system design patterns.dll
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.pdb
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop system design patterns.genruntimeconfig.cache
 C:\Users\larsk\Source\Repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\shop_system_design_patterns.FrenchutoForm.resources
+C:\Users\larsk\source\repos\LarsKuizenga\DesignPatterns\shop system design patterns\obj\Debug\net5.0-windows\refint\shop system design patterns.dll
