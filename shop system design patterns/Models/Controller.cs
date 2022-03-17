@@ -1,11 +1,11 @@
-﻿using shop_system_design_patterns.models.Stocker_Creator;
+﻿using FrenchutoShop.Models.Stocker_Creator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shop_system_design_patterns.models
+namespace FrenchutoShop.Models
 {
 	class Controller
 	{
@@ -166,132 +166,8 @@ namespace shop_system_design_patterns.models
 
 		private string GenerateRandomName()
 		{
-			List<string> nameList = new()
-			{
-				"Raamy",
-				"Lars",
-				"Milou",
-				"Maartje",
-				"Brooklyn",
-				"Marc",
-				"Alondra",
-				"Rodrigo",
-				"Dania",
-				"Aurora",
-				"Jermaine",
-				"Taniya",
-				"Carlos",
-				"Avah",
-				"Charles",
-				"Brice",
-				"Jan",
-				"Lydia",
-				"Jamarcus",
-				"Charlie",
-				"Melody",
-				"Arturo",
-				"Jensen",
-				"Alden",
-				"Skylar",
-				"Abram",
-				"Boston",
-				"Shyla",
-				"Jada",
-				"Lesly",
-				"Vance",
-				"Aarav",
-				"Martin",
-				"Elizabeth",
-				"Lilliana",
-				"Aryana",
-				"Tate",
-				"Angelina",
-				"Keaton",
-				"Jose",
-				"Ruth",
-				"Uriel",
-				"Kyla",
-				"Adrianna",
-				"Grace",
-				"Jason",
-				"Judith",
-				"Jordyn",
-				"India",
-				"Dylan",
-				"Jasmine",
-				"Dillan",
-				"Faith",
-				"Gretchen",
-				"Mathew",
-				"Asher",
-				"Jordon",
-				"Johnathon",
-				"Maritza",
-				"Keegan",
-				"Courtney",
-				"Kolten",
-				"Armani",
-				"Landin",
-				"Allie",
-				"Gunner",
-				"Cameron",
-				"Lexie",
-				"Jaylon",
-				"Maleah",
-				"Kayleigh",
-				"Derek",
-				"Charlee",
-				"Shayna",
-				"Renee",
-				"Christine",
-				"Lila",
-				"Mikaela",
-				"Sierra",
-				"Leticia",
-				"Silas",
-				"Mila",
-				"Yael",
-				"Mattie",
-				"Oswaldo",
-				"Kiley",
-				"Jordin",
-				"Christopher",
-				"Valentin",
-				"Henry",
-				"Gabriella",
-				"Tamara",
-				"Scarlet",
-				"Maddox",
-				"Zachery",
-				"Jorden",
-				"Brian",
-				"Jayson",
-				"Laura",
-				"Skyla",
-				"Aydin",
-				"Zion",
-				"Nylah",
-				"Esther",
-				"Lilia",
-				"Karlee",
-				"Gunnar",
-				"Mallory",
-				"Hanna",
-				"Madalynn",
-				"Sofia",
-				"Toby",
-				"Jon",
-				"Dalia",
-				"Jakayla",
-				"Brooke",
-				"Rebecca",
-				"Anthony",
-				"Darius"
-			};
-
-			int nameIndex = Random.Next(0, nameList.Count);
-
-			return nameList[nameIndex];
+			int nameIndex = Random.Next(0, NameCollection.List.Count);
+			return NameCollection.List[nameIndex];
 		}
 	}
 }

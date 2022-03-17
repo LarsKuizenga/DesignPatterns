@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace shop_system_design_patterns
+namespace FrenchutoShop
 {
     static class Program
     {

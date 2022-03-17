@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "FrenchutoStore/1.0.0": {
+        "runtime": {
+          "FrenchutoStore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FrenchutoStore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

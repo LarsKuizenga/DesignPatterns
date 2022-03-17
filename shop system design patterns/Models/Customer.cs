@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shop_system_design_patterns.models
+namespace FrenchutoShop.Models
 {
     class Customer : Person
     {
@@ -17,7 +17,7 @@ namespace shop_system_design_patterns.models
             if (TimeFragment.TimeLeft == null)
             {
                 //TODO: Determine timefragments per task
-                TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing);
+                TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing, shelve);
             }
             if (!shelve.HasProductAmount())
             {
@@ -25,7 +25,7 @@ namespace shop_system_design_patterns.models
             }
             shelve.RemoveProduct();
 
-            return $"{Name} is buying some {shelve.Category}s for another {TimeFragment.TimeLeft} minutes";
+            return $"{Name} is buying some {shelve.Category}s in shelve:{shelve.Id} for another {TimeFragment.TimeLeft} minutes";
         }
     }
 }

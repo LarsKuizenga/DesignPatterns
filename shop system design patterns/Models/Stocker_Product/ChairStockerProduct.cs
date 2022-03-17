@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shop_system_design_patterns.models
+namespace FrenchutoShop.Models
 {
     class ChairStockerProduct : StockerProduct
     {
@@ -22,7 +22,7 @@ namespace shop_system_design_patterns.models
             if (TimeFragment.TimeLeft == null)
             {
                 //TODO: Determine timefragments per task
-                TimeFragment.StartTimeFragment(3, TaskCategory.Stocking);
+                TimeFragment.StartTimeFragment(3, TaskCategory.Stocking, shelve);
             }
             if (!warehouse.HasProductAmount(ProductCategory.Chair))
             {

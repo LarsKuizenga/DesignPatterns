@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shop_system_design_patterns.models
+namespace FrenchutoShop.Models
 {
 	class Shelve : Storage
 	{
@@ -45,7 +45,7 @@ namespace shop_system_design_patterns.models
 			{
 				foreach (StockerProduct stocker in ShelveManagement.Stockers)
 				{
-					if (stocker.TimeFragment.TaskName == TaskCategory.Stocking)
+					if (stocker.TimeFragment.TaskName == TaskCategory.Stocking && stocker.TimeFragment.Shelve.Id == Id)
 					{
 						stringList.Add(stocker.Stocking(this, warehouse));
 					}

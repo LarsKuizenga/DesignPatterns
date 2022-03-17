@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shop_system_design_patterns.models
+namespace FrenchutoShop.Models
 {
 	class TimeFragment
 	{
 		public uint? TimeLeft { get; set; }
 		public TaskCategory TaskName { get; set; }
+		public Shelve Shelve { get; set; }
 
-		public void StartTimeFragment(uint duration, TaskCategory taskCategory)
+		public void StartTimeFragment(uint duration, TaskCategory taskCategory, Shelve shelve)
 		{
 			TimeLeft = duration;
 			TaskName = taskCategory;
+			Shelve = shelve;
 		}
 
 		public void Tick()
@@ -26,6 +28,7 @@ namespace shop_system_design_patterns.models
 			{
 				TimeLeft = null;
 				TaskName = TaskCategory.None;
+				Shelve = null;
 			}
 		}
 	}

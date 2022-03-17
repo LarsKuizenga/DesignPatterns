@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using shop_system_design_patterns.models.Stocker_Creator;
+using FrenchutoShop.Models.Stocker_Creator;
 
-namespace shop_system_design_patterns.models
+namespace FrenchutoShop.Models
 {
     class ShelveManagement
     {
@@ -26,10 +26,13 @@ namespace shop_system_design_patterns.models
         {
             List<String> stringList = new();
 
-			foreach (StockerProduct stocker in Stockers)
-			{
-                stringList.Add(stocker.Stocking(shelve, warehouse));
-			}
+            foreach (StockerProduct stocker in Stockers)
+            {
+                if (stocker.TimeFragment.TaskName == TaskCategory.None)
+                {
+                    stringList.Add(stocker.Stocking(shelve, warehouse));
+                }
+            }
 
             return stringList;
         }

@@ -1,4 +1,4 @@
-﻿using shop_system_design_patterns.models;
+﻿using FrenchutoShop.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace shop_system_design_patterns
+namespace FrenchutoShop
 {
     public partial class FrenchutoForm : Form
     {
-		private models.Application application;
+		private Models.Application application;
+		private TimeStamp timeStamp;
+		
 
         public FrenchutoForm()
         {
@@ -24,6 +26,7 @@ namespace shop_system_design_patterns
         private void Form1_Load(object sender, EventArgs e)
         {
 			application.Controller.Initialize();
+			timeStamp = new TimeStamp(1, 8, 20);
         }
 
 		private void EventLogListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,6 +36,11 @@ namespace shop_system_design_patterns
 
 		private void TimeSkip_Click(object sender, EventArgs e)
 		{
+			if (timeStamp.IsStartDay())
+            {
+				eventLogListBox.Items.Add(timeStamp.StartDay());
+			}
+
 			for (int i = 0; i < 60; i++)
 			{
 				List<String> stringList = application.Controller.Update();
@@ -43,9 +51,16 @@ namespace shop_system_design_patterns
                     {
 						minuteString = "0" + i;
                     }
-					stringList[j] = "[8:" + minuteString + "] " + stringList[j];
+					stringList[j] = $"[{timeStamp.CurrHour}:{minuteString}] {stringList[j]}";
 				}
-				this.eventLogListBox.Items.AddRange(stringList.ToArray());
+				eventLogListBox.Items.AddRange(stringList.ToArray());
+			}
+
+			timeStamp.UpdateHour();
+
+			if (timeStamp.IsEndOfDay())
+            {
+				eventLogListBox.Items.Add(timeStamp.EndDay());
 			}
 		}
 

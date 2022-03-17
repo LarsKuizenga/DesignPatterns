@@ -1,5 +1,5 @@
 ﻿
-namespace shop_system_design_patterns
+namespace FrenchutoShop
 {
     partial class FrenchutoForm
     {
