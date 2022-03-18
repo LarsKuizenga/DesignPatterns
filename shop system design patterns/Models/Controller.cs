@@ -156,9 +156,10 @@ namespace FrenchutoShop.Models
 			Store.People.RemoveAll(p => p.GetType() == typeof(Customer));
         }
 
-		#endregion
+        #endregion
 
-		public ListViewItem[] UpdateShelveListView()
+        #region TabViewUpdater
+        public ListViewItem[] UpdateShelveListView()
 		{
 			List<ListViewItem> listViewItemList = new();
 
@@ -210,8 +211,9 @@ namespace FrenchutoShop.Models
 
 			return listViewItemList.ToArray();
 		}
+        #endregion
 
-		private ProductCategory GenerateProductCategory()
+        private ProductCategory GenerateProductCategory()
 		{
 			int categoryNumber = Random.Next(Enum.GetNames(typeof(ProductCategory)).Length);
 
