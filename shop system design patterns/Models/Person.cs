@@ -19,6 +19,11 @@ namespace FrenchutoShop.Models
 
         public abstract string Purchase(Shelve shelve);
 
+        public string GetTimeFragmentShelveId()
+        {
+            return TimeFragment.Shelve == null ? "None" : TimeFragment.Shelve.Id.ToString();
+        }
+
         public void Update()
         {
             TimeFragment.Tick();

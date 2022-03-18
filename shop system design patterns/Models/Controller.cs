@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FrenchutoShop.Models
 {
@@ -39,7 +40,7 @@ namespace FrenchutoShop.Models
 			return warehouse;
 		}
 
-		private List<Person> InitializePeople()
+        private List<Person> InitializePeople()
 		{
 			List<Person> people = new();
 
@@ -52,7 +53,7 @@ namespace FrenchutoShop.Models
 			return people;
 		}
 
-		private List<Shelve> InitializeShelves()
+        private List<Shelve> InitializeShelves()
 		{
 			List<Shelve> shelves = new();
 
@@ -149,7 +150,66 @@ namespace FrenchutoShop.Models
 
 			return stringList;
 		}
+
+		public void AllCustomersLeave()
+        {
+			Store.People.RemoveAll(p => p.GetType() == typeof(Customer));
+        }
+
 		#endregion
+
+		public ListViewItem[] UpdateShelveListView()
+		{
+			List<ListViewItem> listViewItemList = new();
+
+			foreach (Shelve shelve in Store.Shelves)
+			{
+				string[] properties = { shelve.Id.ToString(), shelve.Category.ToString(), shelve.Products.Count.ToString() };
+				listViewItemList.Add(new ListViewItem(properties));
+			}
+
+			return listViewItemList.ToArray();
+		}
+
+		public ListViewItem[] UpdateStockersListView()
+		{
+			List<ListViewItem> listViewItemList = new();
+
+			foreach (StockerProduct stocker in Store.People.FindAll(p => p.GetType() != typeof(Customer)))
+			{
+				string[] properties = { stocker.Name, stocker.TimeFragment.TaskName.ToString(), stocker.TimeFragment.TimeLeft.ToString(), stocker.GetTimeFragmentShelveId()};
+				listViewItemList.Add(new ListViewItem(properties));
+			}
+
+			return listViewItemList.ToArray();
+		}
+
+		public ListViewItem[] UpdateCustomersListView()
+		{
+			List<ListViewItem> listViewItemList = new();
+
+			foreach (Customer customer in Store.People.FindAll(p => p.GetType() == typeof(Customer)))
+			{
+				string[] properties = { customer.Name, customer.TimeFragment.TaskName.ToString(), customer.TimeFragment.TimeLeft.ToString(), customer.GetTimeFragmentShelveId() };
+				listViewItemList.Add(new ListViewItem(properties));
+			}
+
+			return listViewItemList.ToArray();
+		}
+
+		public ListViewItem[] UpdateWarehouseListView()
+		{
+			List<ListViewItem> listViewItemList = new();
+
+			foreach (ProductCategory productCategory in (ProductCategory[])Enum.GetValues(typeof(ProductCategory)))
+			{
+				int categoryProductCount = Store.Warehouse.Products.FindAll(p => p.Category == productCategory).Count;
+				string[] properties = { productCategory.ToString(), categoryProductCount.ToString() };
+				listViewItemList.Add(new ListViewItem(properties));
+			}
+
+			return listViewItemList.ToArray();
+		}
 
 		private ProductCategory GenerateProductCategory()
 		{

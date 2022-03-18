@@ -8,7 +8,7 @@ namespace FrenchutoShop.Models
 {
 	class TimeFragment
 	{
-		public uint? TimeLeft { get; set; }
+		public uint TimeLeft { get; set; }
 		public TaskCategory TaskName { get; set; }
 		public Shelve Shelve { get; set; }
 
@@ -26,7 +26,6 @@ namespace FrenchutoShop.Models
 
 			if (TimeLeft == 0)
 			{
-				TimeLeft = null;
 				TaskName = TaskCategory.None;
 				Shelve = null;
 			}

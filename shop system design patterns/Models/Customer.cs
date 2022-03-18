@@ -14,7 +14,7 @@ namespace FrenchutoShop.Models
 
         public override string Purchase(Shelve shelve)
         {
-            if (TimeFragment.TimeLeft == null)
+            if (TimeFragment.TimeLeft == 0)
             {
                 //TODO: Determine timefragments per task
                 TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing, shelve);

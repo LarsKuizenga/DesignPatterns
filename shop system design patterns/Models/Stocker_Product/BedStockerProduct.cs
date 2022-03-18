@@ -19,7 +19,7 @@ namespace FrenchutoShop.Models
 			{
                 return $"{Name} can't be stocking right now, they're doing something else";
 			}
-            if (TimeFragment.TimeLeft == null)
+            if (TimeFragment.TimeLeft == 0)
 			{
                 //TODO: Determine timefragments per task
                 TimeFragment.StartTimeFragment(5, TaskCategory.Stocking, shelve);

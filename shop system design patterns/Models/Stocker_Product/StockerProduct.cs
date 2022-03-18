@@ -21,7 +21,7 @@ namespace FrenchutoShop.Models
 			{
 				return $"{Name} is a {GetType().Name[0..^7]} and is doing their job right now, no shopping!";
 			}
-			if (TimeFragment.TimeLeft == null)
+			if (TimeFragment.TimeLeft == 0)
 			{
 				//TODO: Determine timefragments per task
 				TimeFragment.StartTimeFragment(1, TaskCategory.Purchasing, shelve);

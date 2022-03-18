@@ -25,17 +25,27 @@ namespace FrenchutoShop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-			application.Controller.Initialize();
-			timeStamp = new TimeStamp(1, 8, 20);
+			
         }
 
-		private void EventLogListBox_SelectedIndexChanged(object sender, EventArgs e)
+		private void StartNewStoreButton_Click(object sender, EventArgs e)
 		{
-
+			eventLogListBox.Items.Clear();
+			shelvesListView.Items.Clear();
+			application.Controller.Initialize();
+			timeStamp = new TimeStamp(1, 8, 20);
+			UpdateListViews();
 		}
 
 		private void TimeSkip_Click(object sender, EventArgs e)
 		{
+			if (application.Controller.Store == null)
+			{
+				string message = "No store has been created yet";
+				MessageBox.Show(message);
+				return;
+			}
+
 			if (timeStamp.IsStartDay())
             {
 				eventLogListBox.Items.Add(timeStamp.StartDay());
@@ -51,7 +61,7 @@ namespace FrenchutoShop
                     {
 						minuteString = "0" + i;
                     }
-					stringList[j] = $"[{timeStamp.CurrHour}:{minuteString}] {stringList[j]}";
+					stringList[j] = $"Day {timeStamp.DayCount} [{timeStamp.CurrHour}:{minuteString}] {stringList[j]}";
 				}
 				eventLogListBox.Items.AddRange(stringList.ToArray());
 			}
@@ -61,12 +71,28 @@ namespace FrenchutoShop
 			if (timeStamp.IsEndOfDay())
             {
 				eventLogListBox.Items.Add(timeStamp.EndDay());
+				application.Controller.AllCustomersLeave();
 			}
+
+			UpdateListViews();
+		}
+
+		private void UpdateListViews()
+        {
+			shelvesListView.Items.Clear();
+			stockersListView.Items.Clear();
+			customersListView.Items.Clear();
+			warehouseListView.Items.Clear();
+
+			shelvesListView.Items.AddRange(application.Controller.UpdateShelveListView());
+			stockersListView.Items.AddRange(application.Controller.UpdateStockersListView());
+			customersListView.Items.AddRange(application.Controller.UpdateCustomersListView());
+			warehouseListView.Items.AddRange(application.Controller.UpdateWarehouseListView());
 		}
 
 		private void ClearEventLog_Click(object sender, EventArgs e)
 		{
-
+			eventLogListBox.Items.Clear();
 		}
-	}
+    }
 }
