@@ -75,6 +75,7 @@ namespace FrenchutoShop
 			}
 
 			UpdateListViews();
+			SetListBoxToBottom();
 		}
 
 		private void UpdateListViews()
@@ -88,6 +89,11 @@ namespace FrenchutoShop
 			stockersListView.Items.AddRange(application.Controller.UpdateStockersListView());
 			customersListView.Items.AddRange(application.Controller.UpdateCustomersListView());
 			warehouseListView.Items.AddRange(application.Controller.UpdateWarehouseListView());
+		}
+
+		private void SetListBoxToBottom()
+		{ 
+			eventLogListBox.TopIndex = eventLogListBox.Items.Count-1;
 		}
 
 		private void ClearEventLog_Click(object sender, EventArgs e)
