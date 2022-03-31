@@ -317,7 +317,6 @@ namespace FrenchutoShop
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrenchutoForm";
             this.Text = "Frenchuto Store";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.storeStateTabControl.ResumeLayout(false);
             this.shelvesTab.ResumeLayout(false);
             this.stockersTab.ResumeLayout(false);

@@ -21,11 +21,6 @@ namespace FrenchutoShop
 			application = new Models.Application(new Controller(), this);
 		}
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-			
-        }
-
 		private void StartNewStoreButton_Click(object sender, EventArgs e)
 		{
 			application.ExecuteCommend(new StartNewStoreCommand());
