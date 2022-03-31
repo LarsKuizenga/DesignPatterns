@@ -8,23 +8,21 @@ namespace FrenchutoShop.Models
 {
     class Application
     {
-        public EventLog EventLog { get; set; }
+        public TimeStamp TimeStamp;
         public Controller Controller { get; set; }
-        
-        public Application(EventLog eventLog, Controller controller)
+
+        public FrenchutoForm FrenchutoForm { get; set; }
+
+        public Application(Controller controller, FrenchutoForm frenchutoForm)
         {
-            EventLog = eventLog;
             Controller = controller;
+            FrenchutoForm = frenchutoForm;
+            TimeStamp = new TimeStamp(1, 8, 20);
         }
 
         public void ExecuteCommend(ICommand command) 
         {
-            throw new NotImplementedException();
-        }
-
-        public void CreateUI() 
-        {
-            throw new NotImplementedException();
+            command.Execute(this);
         }
     }
 }

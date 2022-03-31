@@ -329,12 +329,10 @@ namespace FrenchutoShop
         }
 
 		#endregion
-
-		private System.Windows.Forms.ListBox eventLogListBox;
 		private System.Windows.Forms.Button timeSkipButton;
 		private System.Windows.Forms.Button clearLogButton;
         private System.Windows.Forms.Button startNewStoreButton;
-        private System.Windows.Forms.ListView shelvesListView;
+        public System.Windows.Forms.ListView shelvesListView;
         private System.Windows.Forms.ColumnHeader shelveId;
         private System.Windows.Forms.ColumnHeader shelveCategory;
         private System.Windows.Forms.ColumnHeader amountOfItems;
@@ -342,21 +340,22 @@ namespace FrenchutoShop
         private System.Windows.Forms.TabControl storeStateTabControl;
         private System.Windows.Forms.TabPage shelvesTab;
         private System.Windows.Forms.TabPage stockersTab;
-        private System.Windows.Forms.ListView stockersListView;
+        public System.Windows.Forms.ListView stockersListView;
         private System.Windows.Forms.ColumnHeader stockerName;
         private System.Windows.Forms.ColumnHeader stockerTask;
         private System.Windows.Forms.ColumnHeader stockerTimeLeft;
         private System.Windows.Forms.ColumnHeader stockerShelveId;
         private System.Windows.Forms.TabPage customersTab;
-        private System.Windows.Forms.ListView customersListView;
+        public System.Windows.Forms.ListView customersListView;
         private System.Windows.Forms.ColumnHeader customerName;
         private System.Windows.Forms.ColumnHeader customerTask;
         private System.Windows.Forms.ColumnHeader customerTaskLeft;
         private System.Windows.Forms.ColumnHeader customerShelve;
         private System.Windows.Forms.TabPage warehouseTab;
-        private System.Windows.Forms.ListView warehouseListView;
+        public System.Windows.Forms.ListView warehouseListView;
         private System.Windows.Forms.ColumnHeader warehouseProductCategory;
         private System.Windows.Forms.ColumnHeader warehouseProductAmount;
+        public System.Windows.Forms.ListBox eventLogListBox;
     }
 }
 

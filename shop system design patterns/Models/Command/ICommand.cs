@@ -8,6 +8,6 @@ namespace FrenchutoShop.Models
 {
     interface ICommand
     {
-        void Execute();
+        void Execute(Application application);
     }
 }

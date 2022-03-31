@@ -7,16 +7,14 @@ using System.Windows.Forms;
 
 namespace FrenchutoShop.Models
 {
-    class ClearEventLogCommand : ICommand
+    class SetListBoxToBottomCommand : ICommand
     {
-        public ClearEventLogCommand() 
-        { 
-           
-        }
-
         public void Execute(Application application)
         {
-            MethodInvoker methodInvoker = () => application.FrenchutoForm.eventLogListBox.Items.Clear();
+            MethodInvoker methodInvoker = () =>
+            {
+                application.FrenchutoForm.eventLogListBox.TopIndex = application.FrenchutoForm.eventLogListBox.Items.Count - 1;
+            };
             application.FrenchutoForm.BeginInvoke(methodInvoker);
         }
     }

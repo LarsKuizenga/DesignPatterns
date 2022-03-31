@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj": {}
+    "C:\\Users\\RAfif\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj": {
+    "C:\\Users\\RAfif\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj",
+        "projectUniqueName": "C:\\Users\\RAfif\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj",
         "projectName": "FrenchutoStore",
-        "projectPath": "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj",
-        "packagesPath": "C:\\Users\\larsk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\larsk\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\obj\\",
+        "projectPath": "C:\\Users\\RAfif\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\FrenchutoStore.csproj",
+        "packagesPath": "C:\\Users\\RAfif\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RAfif\\source\\repos\\LarsKuizenga\\DesignPatterns\\shop system design patterns\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\larsk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RAfif\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"
