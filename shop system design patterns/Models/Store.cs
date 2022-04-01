@@ -1,11 +1,11 @@
-﻿using System;
+﻿using FrenchutoShop.Models.Observer;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FrenchutoShop.Models
 {
+    /// <summary>
+    /// Holds the warehouse, all shelves and people within the store
+    /// </summary>
     class Store
     {
         public string Name { get; set; }
@@ -17,26 +17,6 @@ namespace FrenchutoShop.Models
         {
             Name = name;
             Warehouse = warehouse;
-        }
-
-        public void AddPerson(Person person) 
-        {
-            People.Add(person);
-        }
-
-        public void RemovePerson(Person person)
-        {
-            People.Remove(person);
-        }
-
-        public void AddShelve(Shelve shelve)
-        {
-            Shelves.Add(shelve);
-        }
-
-        public void RemoveShelve(Shelve shelve)
-        {
-            Shelves.Remove(shelve);
         }
     }
 }

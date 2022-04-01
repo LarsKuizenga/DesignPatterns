@@ -1,17 +1,16 @@
-﻿using System;
+﻿using FrenchutoShop.Models.Enums;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FrenchutoShop.Models.Stocker_Creator;
 
-namespace FrenchutoShop.Models
+namespace FrenchutoShop.Models.Observer
 {
+    /// <summary>
+    /// Manager which keeps track of which stockers are set to restock shelve products.
+    /// </summary>
     class ShelveManagement
     {
         public List<StockerProduct> Stockers { get; set; } = new List<StockerProduct>();
 
-        public void Subscribe(StockerProduct stocker) 
+        public void Subscribe(StockerProduct stocker)
         {
             Stockers.Add(stocker);
         }
@@ -21,14 +20,13 @@ namespace FrenchutoShop.Models
             Stockers.Remove(stocker);
         }
 
-        //TODO: Check data type
-        public List<String> Notify(Shelve shelve, Warehouse warehouse)
+        public List<string> Notify(Shelve shelve, Warehouse warehouse)
         {
-            List<String> stringList = new();
+            List<string> stringList = new();
 
             foreach (StockerProduct stocker in Stockers)
             {
-                if (stocker.TimeFragment.TaskName == TaskCategory.None)
+                if (stocker.Task.TaskName == TaskCategory.None)
                 {
                     stringList.Add(stocker.Stocking(shelve, warehouse));
                 }

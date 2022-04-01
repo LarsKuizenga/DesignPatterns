@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace FrenchutoShop.Models
 {
+    /// <summary>
+    /// Keeps track of current time and day in the store.
+    /// </summary>
     class TimeStamp
     {
         public int DayCount { get; set; }
@@ -26,7 +24,7 @@ namespace FrenchutoShop.Models
             return CurrHour == MinHour;
         }
 
-        public String StartDay()
+        public string StartDay()
         {
             return $"Day {DayCount} starts";
         }
@@ -36,9 +34,9 @@ namespace FrenchutoShop.Models
             return CurrHour > MaxHour;
         }
 
-        public String EndDay()
+        public string EndDay()
         {
-            String returnString = $"Day {DayCount} ends";
+            string returnString = $"Day {DayCount} ends";
             CurrHour = MinHour;
             DayCount++;
             return returnString;

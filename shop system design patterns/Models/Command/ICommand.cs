@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FrenchutoShop.Models
+﻿
+namespace FrenchutoShop.Models.Command
 {
+    /// <summary>
+    /// Interface to allow the Application class to give easy access to commands from the frontend.
+    /// </summary>
     interface ICommand
     {
         void Execute(Application application);

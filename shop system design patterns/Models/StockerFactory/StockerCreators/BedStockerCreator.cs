@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace FrenchutoShop.Models.Stocker_Creator
 {
+    /// <summary>
+    /// Creator responsible for creating BedStockers.
+    /// </summary>
     class BedStockerCreator : StockerCreator
     {
-        public BedStockerCreator()
-        {
-        }
-
         public override StockerProduct CreateProduct(string name)
         {
             string returnName = "Bedstocker: " + name;

@@ -1,13 +1,10 @@
-﻿using FrenchutoShop.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace FrenchutoShop.Models
+namespace FrenchutoShop.Models.Command
 {
+    /// <summary>
+    /// Command business logic to update all list views.
+    /// </summary>
     class UpdateListViewsCommand : ICommand
     {
         public void Execute(Application application)

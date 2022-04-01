@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace FrenchutoShop.Models
+namespace FrenchutoShop.Models.Command
 {
+    /// <summary>
+    /// Command business logic to clear event log.
+    /// </summary>
     class ClearEventLogCommand : ICommand
     {
-        public ClearEventLogCommand() 
-        { 
-           
-        }
-
         public void Execute(Application application)
         {
             MethodInvoker methodInvoker = () => application.FrenchutoForm.eventLogListBox.Items.Clear();

@@ -209,7 +209,7 @@ namespace FrenchutoShop
             // stockerTask
             // 
             this.stockerTask.Text = "Task";
-            this.stockerTask.Width = 80;
+            this.stockerTask.Width = 160;
             // 
             // stockerTimeLeft
             // 
@@ -219,7 +219,7 @@ namespace FrenchutoShop
             // stockerShelveId
             // 
             this.stockerShelveId.Text = "Shelve ID";
-            this.stockerShelveId.Width = 160;
+            this.stockerShelveId.Width = 80;
             // 
             // customersTab
             // 
@@ -256,7 +256,7 @@ namespace FrenchutoShop
             // customerTask
             // 
             this.customerTask.Text = "Task";
-            this.customerTask.Width = 80;
+            this.customerTask.Width = 160;
             // 
             // customerTaskLeft
             // 
@@ -266,7 +266,7 @@ namespace FrenchutoShop
             // customerShelve
             // 
             this.customerShelve.Text = "Shelve ID";
-            this.customerShelve.Width = 160;
+            this.customerShelve.Width = 80;
             // 
             // warehouseTab
             // 

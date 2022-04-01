@@ -1,62 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace FrenchutoShop.Models
+namespace FrenchutoShop.Models.Command
 {
-    class TimeSkipCommand : ICommand 
+    /// <summary>
+    /// Command business logic to perform a timeskip.
+    /// </summary>
+    class TimeSkipCommand : ICommand
     {
-		
-		public TimeSkipCommand()
+        public void Execute(Application application)
         {
+            if (application.Controller.Store == null)
+            {
+                string message = "No store has been created yet";
+                MessageBox.Show(message);
+                return;
+            }
 
-		}
+            if (application.TimeStamp.IsStartDay())
+            {
+                MethodInvoker methodInvoker = () => application.FrenchutoForm.eventLogListBox.Items.Add(application.TimeStamp.StartDay());
+                application.FrenchutoForm.BeginInvoke(methodInvoker);
+            }
 
-        public void Execute(Application Application)
-        {
-			if (Application.Controller.Store == null)
-			{
-				string message = "No store has been created yet";
-				MessageBox.Show(message);
-				return;
-			}
+            for (int i = 0; i < 60; i++)
+            {
+                List<string> stringList = application.Controller.Update();
+                for (int j = 0; j < stringList.Count; j++)
+                {
+                    string minuteString = i.ToString();
+                    if (i < 10)
+                    {
+                        minuteString = "0" + i;
+                    }
 
-			if (Application.TimeStamp.IsStartDay())
-			{
-				MethodInvoker methodInvoker = () => Application.FrenchutoForm.eventLogListBox.Items.Add(Application.TimeStamp.StartDay());
-				Application.FrenchutoForm.BeginInvoke(methodInvoker);
-			}
+                    stringList[j] = $"Day {application.TimeStamp.DayCount} [{application.TimeStamp.CurrHour}:{minuteString}] {stringList[j]}";
+                }
 
-			for (int i = 0; i < 60; i++)
-			{
-				List<String> stringList = Application.Controller.Update();
-				for (int j = 0; j < stringList.Count; j++)
-				{
-					string minuteString = i.ToString();
-					if (i < 10)
-					{
-						minuteString = "0" + i;
-					}
-					stringList[j] = $"Day {Application.TimeStamp.DayCount} [{Application.TimeStamp.CurrHour}:{minuteString}] {stringList[j]}";
-				}
-				MethodInvoker methodInvoker = () => Application.FrenchutoForm.eventLogListBox.Items.AddRange(stringList.ToArray());
-				Application.FrenchutoForm.BeginInvoke(methodInvoker);
-			}
+                MethodInvoker methodInvoker = () => application.FrenchutoForm.eventLogListBox.Items.AddRange(stringList.ToArray());
+                application.FrenchutoForm.BeginInvoke(methodInvoker);
+            }
 
-			Application.TimeStamp.UpdateHour();
+            application.TimeStamp.UpdateHour();
 
-			if (Application.TimeStamp.IsEndOfDay())
-			{
-				MethodInvoker methodInvoker = () => Application.FrenchutoForm.eventLogListBox.Items.Add(Application.TimeStamp.EndDay());
-				Application.FrenchutoForm.BeginInvoke(methodInvoker);
-				Application.Controller.AllCustomersLeave();
-			}
+            if (application.TimeStamp.IsEndOfDay())
+            {
+                MethodInvoker methodInvoker = () => application.FrenchutoForm.eventLogListBox.Items.Add(application.TimeStamp.EndDay());
+                application.FrenchutoForm.BeginInvoke(methodInvoker);
+                application.Controller.AllCustomersLeave();
+            }
 
-			Application.ExecuteCommend(new UpdateListViewsCommand());
-			Application.ExecuteCommend(new SetListBoxToBottomCommand());
+            application.ExecuteCommend(new UpdateListViewsCommand());
+            application.ExecuteCommend(new SetListBoxToBottomCommand());
         }
     }
 }

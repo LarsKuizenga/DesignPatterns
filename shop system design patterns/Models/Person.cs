@@ -1,32 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FrenchutoShop.Models.Observer;
 
 namespace FrenchutoShop.Models
 {
+    /// <summary>
+    /// Base class keeping track of current task.
+    /// </summary>
     abstract class Person
     {
         public string Name { get; set; }
-        public TimeFragment TimeFragment { get; set; }
+        public Task Task { get; set; }
 
-        public Person(string name) 
+        public Person(string name)
         {
             Name = name;
-            TimeFragment = new TimeFragment();
+            Task = new Task();
         }
 
         public abstract string Purchase(Shelve shelve);
 
         public string GetTimeFragmentShelveId()
         {
-            return TimeFragment.Shelve == null ? "None" : TimeFragment.Shelve.Id.ToString();
+            return Task.Shelve == null ? "None" : Task.Shelve.Id.ToString();
         }
 
         public void Update()
         {
-            TimeFragment.Tick();
+            Task.Tick();
         }
     }
 }
